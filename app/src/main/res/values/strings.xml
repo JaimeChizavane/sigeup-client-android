@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">SIGEUP_Android</string>
+
+    <string name="navigation_drawer_open">Abrir o navegador</string>
+    <string name="navigation_drawer_close">Fechar o navegador</string>
+
+    <string name="action_settings">Personalização</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="action_settings1">Portal do Estudante</string>
+    <string name="action_settings2">Situação Financeira</string>
+    <string name="action_settings3">Inscrições</string>
+
+    <string name="action_settings4">Sair</string>
+
+
+    <string name="login_edit_user">Usúario</string>
+    <string name="login_password_hint">Senha</string>
+
+    <string name="login_button">Autenticar</string>
+    <string name="clear_button">Limpar</string>
+
+    <string name="ir_button">Ir</string>
+
+    <string name="radio_avaliacao">Resultado de avaliação</string>
+    <string name="radio_exame">Resultado de Exame</string>
+    <string name="radio_statement">Extracto financeiro</string>
+    <string name="radio_reference">Referências bancárias</string>
+
+
+    <string-array name="menu_spinner_array">
+        <item>Selecione uma opção</item>
+        <item>Notas de Frequência</item>
+        <item>Exames</item>
+        <item>Inscrições</item>
+    </string-array>
+
+</resources>
