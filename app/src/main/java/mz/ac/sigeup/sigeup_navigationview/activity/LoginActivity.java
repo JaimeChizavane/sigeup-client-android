@@ -251,7 +251,10 @@ public class LoginActivity extends Activity {
 
     private void showDialog() {
         if (!pDialog.isShowing())
-            pDialog.show();
+//            pDialog.show();
+
+        //This method when it is on show() it gives a bug not allowing the application to proceed beyond the login screen
+        pDialog.dismiss();
     }
 
     private void hideDialog() {

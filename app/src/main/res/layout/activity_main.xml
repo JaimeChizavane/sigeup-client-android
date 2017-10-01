@@ -22,11 +22,11 @@
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
-    <ImageView android:id="@+id/imageView1"
+    <!--<ImageView android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/up2"
         android:scaleType="centerInside"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true" />-->
 
 </android.support.v4.widget.DrawerLayout>
