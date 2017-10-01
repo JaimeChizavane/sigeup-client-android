@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Funcionalidade de chat em construcao...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_portal) {
-            setTitle("Fragment 1");
+            setTitle("Portal do Estudante");
             PortalFragment portalFragment = new PortalFragment();
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.frame, portalFragment);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_financial) {
-            setTitle("Fragment 2");
+            setTitle("Situacao Financeira");
             FinanceFragment financeFragment = new FinanceFragment();
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.frame, financeFragment);
