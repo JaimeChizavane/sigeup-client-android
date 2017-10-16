@@ -11,4 +11,9 @@ public class AppConfig {
 
     // PROD Server user usuario url
     public static String URL_USUARIO = "http://sigeup-api.ga/api/usuario/";
+
+    // PROD Get Pauta URL
+    public final String URL_PAUTA = "http://sigeup-api.ga/api/pauta/";
+
+
 }

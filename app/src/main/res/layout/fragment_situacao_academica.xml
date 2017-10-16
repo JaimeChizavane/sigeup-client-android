@@ -2,17 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PortalFragment"
-    android:gravity="center"
-    >
+    tools:context="layout.SituacaoAcademicaFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <!--<TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/action_settings1" />
-        -->
-
     <TextView
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
@@ -25,7 +17,7 @@
         android:textColor="#fafafa"
         android:textSize="22sp" />
 
-    <!--<TextView
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +27,7 @@
         android:padding="10dp"
         android:text="Actualizado: 26/Jul/2017"
         android:textColor="#FFFFFF"
-        android:textSize="16sp" />-->
+        android:textSize="16sp" />
 
     <Spinner
         android:id="@+id/year_spinner"
@@ -80,7 +72,5 @@
         android:layout_marginTop="400dp"
         android:defaultFocusHighlightEnabled="true"
         />
-
-
 
 </FrameLayout>
