@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import layout.SituacaoAcademicaFragment;
+
 import static android.R.attr.tag;
 
 public class MainActivity extends AppCompatActivity
@@ -90,7 +92,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_portal) {
             setTitle("Portal do Estudante");
-            PortalFragment portalFragment = new PortalFragment();
+            SituacaoAcademicaFragment portalFragment = new SituacaoAcademicaFragment();
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.frame, portalFragment);
             fm.commit();

@@ -28,6 +28,7 @@ public class PortalFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
     private OnFragmentInteractionListener mListener;
 
     public PortalFragment() {
@@ -108,6 +109,7 @@ public class PortalFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this
