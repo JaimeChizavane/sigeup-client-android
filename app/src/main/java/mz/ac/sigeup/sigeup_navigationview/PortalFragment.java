@@ -1,13 +1,33 @@
 package mz.ac.sigeup.sigeup_navigationview;
 
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.ListView;
 import android.widget.RadioButton;
+
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import mz.ac.sigeup.sigeup_navigationview.app.Notas;
+
+import static mz.ac.sigeup.sigeup_navigationview.R.id.listViewPortal;
 
 
 /**
@@ -28,6 +48,14 @@ public class PortalFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    private static final String tag = PortalFragment.class.getSimpleName();
+    private static final String url = "http://sigeup-api.ga/api/pauta/";
+    private String username;
+
+    private List<Notas> list = new ArrayList<Notas>();
+    private ListView listView;
+    private Adapter adapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -60,13 +88,62 @@ public class PortalFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_portal, container, false);
+        //return inflater.inflate(R.layout.fragment_portal, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_portal, container, false);
+        //View view = inflater.inflate(R.id.listViewPortal, container, false);
+
+
+        listView =  (ListView) view.findViewById(listViewPortal);
+        adapter = new Adapter(this, list);
+        listView.setAdapter(adapter);
+
+        JsonArrayRequest jsonreq = new JsonArrayRequest(url,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        for (int i = 0; i < response.length(); i++) {
+                            try {
+
+                                JSONObject obj = response.getJSONObject(i);
+                                DataSet dataSet = new DataSet();
+                                dataSet.setName(obj.getString("name"));
+                                dataSet.setImage(obj.getString("image"));
+                                dataSet.setWorth(obj.getString("worth"));
+                                dataSet.setYear(obj.getInt("InYear"));
+                                dataSet.setSource(obj.getString("source"));
+                                list.add(dataSet);
+                            } catch (JSONExc b1§edsasassq
+
+
+
+
+
+                             eption e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                AlertDialog.Builder add = new AlertDialog.Builder(MainActivity.this);
+                add.setMessage(error.getMessage()).setCancelable(true);
+                AlertDialog alert = add.create();
+                alert.setTitle("Error!!!");
+                alert.show();
+            }
+        });
+        Controller.getPermission().addToRequestQueue(jsonreq);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -109,6 +186,7 @@ public class PortalFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
 
     /**

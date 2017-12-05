@@ -158,7 +158,7 @@ public class LoginActivity extends Activity {
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + toString());
                 hideDialog();
-                Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                 //System.out.print(response);
                 try
                 {

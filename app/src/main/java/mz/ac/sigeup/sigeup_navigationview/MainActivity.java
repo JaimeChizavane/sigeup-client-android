@@ -92,9 +92,9 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_portal) {
             setTitle("Portal do Estudante");
-            SituacaoAcademicaFragment portalFragment = new SituacaoAcademicaFragment();
+            SituacaoAcademicaFragment situacaoAcademicaFragment = new SituacaoAcademicaFragment();
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-            fm.replace(R.id.frame, portalFragment);
+            fm.replace(R.id.frame, situacaoAcademicaFragment);
             fm.commit();
 
 
