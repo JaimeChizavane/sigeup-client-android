@@ -158,27 +158,19 @@ public class LoginActivity extends Activity {
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + toString());
                 hideDialog();
-                //Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                //System.out.print(response);
+
                 try
                 {
-                    //Teu Erro está aqui. Inicializaste mal o JSONOBject.
-                    //JSONObject jObj = new JSONObject();
-                    JSONObject jObj = new JSONObject(response);
 
-                    //Isto daria um erro nulo muito agressivo
-                    //List<String> listobject = new ArrayList<String>();
-                    //listobject = <String> jObj;
+                    JSONObject jObj = new JSONObject(response);
 
                     JSONArray cast = jObj.getJSONArray(result);
 
-                    // Check for error node in json
+
                     if (cast.length() > 0) {
-                        // user successfully logged in
-                        // Create login session
+
                         session.setLogin(true);
-                        //Jaime, como queres buscar algo na posição 1 se a primeira posiçao de uma array é 0??
-                        //jObj = cast.getJSONObject(1);
+
                         jObj = cast.getJSONObject(0);
 
                         String username = jObj.getString("username");
@@ -194,21 +186,10 @@ public class LoginActivity extends Activity {
                         // Inserting row in users table
                         db.addUser(uid, name, email, username, birthDate, gender, profile, confirmation, token);
 
-                        //Trying to pass String to Main Menu activity
-                        //studantName.setText(name);
-                        //studantEmail.setText(email);
 
                         Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_LONG).show();
 
-                        //Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_LONG).show();
 
-                        /*
-                        // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this,
-                                MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                        */
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = "Objecto não encontrado";
@@ -235,25 +216,23 @@ public class LoginActivity extends Activity {
 
             @Override
             protected Map<String, String> getParams() {
-                // Posting parameters to login url
+
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("username", username);
-                //params.put("password", password);
+
 
                 return params;
             }
 
         };
 
-        // Adding request to request queue
+
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
 
     private void showDialog() {
         if (!pDialog.isShowing())
-//            pDialog.show();
-
-        //This method when it is on show() it gives a bug not allowing the application to proceed beyond the login screen
+//
         pDialog.dismiss();
     }
 

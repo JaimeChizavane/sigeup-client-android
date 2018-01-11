@@ -99,50 +99,7 @@ public class PortalFragment extends Fragment {
         //View view = inflater.inflate(R.id.listViewPortal, container, false);
 
 
-        listView =  (ListView) view.findViewById(listViewPortal);
-        adapter = new Adapter(this, list);
-        listView.setAdapter(adapter);
 
-        JsonArrayRequest jsonreq = new JsonArrayRequest(url,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-
-                                JSONObject obj = response.getJSONObject(i);
-                                DataSet dataSet = new DataSet();
-                                dataSet.setName(obj.getString("name"));
-                                dataSet.setImage(obj.getString("image"));
-                                dataSet.setWorth(obj.getString("worth"));
-                                dataSet.setYear(obj.getInt("InYear"));
-                                dataSet.setSource(obj.getString("source"));
-                                list.add(dataSet);
-                            } catch (JSONExc b1§edsasassq
-
-
-
-
-
-                             eption e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                        adapter.notifyDataSetChanged();
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                AlertDialog.Builder add = new AlertDialog.Builder(MainActivity.this);
-                add.setMessage(error.getMessage()).setCancelable(true);
-                AlertDialog alert = add.create();
-                alert.setTitle("Error!!!");
-                alert.show();
-            }
-        });
-        Controller.getPermission().addToRequestQueue(jsonreq);
 
     }
 
