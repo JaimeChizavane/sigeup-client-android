@@ -23,7 +23,7 @@ import static android.R.attr.tag;
 
 public class MainActivity extends AppCompatActivity
         implements OnNavigationItemSelectedListener, FinanceFragment.OnFragmentInteractionListener,
-        PortalFragment.OnFragmentInteractionListener {
+        PortalFragment.OnFragmentInteractionListener, SituacaoAcademicaFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +96,11 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.frame, situacaoAcademicaFragment);
             fm.commit();
+
+            /*PortalFragment portalEstudante = new PortalFragment();
+            FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
+            fm.replace(R.id.frame, portalEstudante);
+            fm.commit();*/
 
 
         } else if (id == R.id.nav_financial) {

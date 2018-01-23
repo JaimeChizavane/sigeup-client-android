@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SIGEUP_Android</string>
+    <string name="app_name">SIGEUP Mobile</string>
 
     <string name="navigation_drawer_open">Abrir o navegador</string>
     <string name="navigation_drawer_close">Fechar o navegador</string>

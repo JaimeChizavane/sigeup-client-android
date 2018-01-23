@@ -111,6 +111,8 @@ public class LoginActivity extends Activity {
                     // login user
                     checkLogin(username /*, password*/);
 
+                    //studantName.setText(username);
+                    //studantEmail.setText(email);
 
                     Intent intent = new Intent(LoginActivity.this,
                             MainActivity.class);
@@ -173,9 +175,10 @@ public class LoginActivity extends Activity {
 
                         jObj = cast.getJSONObject(0);
 
+                        String id = jObj.getString("id");
                         String username = jObj.getString("username");
                         String email = jObj.getString("email");
-                        String uid = jObj.getString("id");
+                        //String uid = jObj.getString("id");
                         String name = jObj.getString("nome");
                         String birthDate = jObj.getString("data_nascimento");
                         String gender = jObj.getString("genero");
@@ -183,9 +186,14 @@ public class LoginActivity extends Activity {
                         String confirmation = jObj.getString("confirmado");
                         String token = jObj.getString("token");
 
-                        // Inserting row in users table
-                        db.addUser(uid, name, email, username, birthDate, gender, profile, confirmation, token);
+                        String password = "";
 
+                        // Inserting row in users table
+
+                        //db.addUser(id, username, name, email, password, birthDate, profile, confirmation, gender, token);
+
+                        /*studantName.setText(name);
+                        studantEmail.setText(email);*/
 
                         Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_LONG).show();
 
@@ -240,6 +248,8 @@ public class LoginActivity extends Activity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+
 
 
 }

@@ -3,4 +3,14 @@
     <color name="colorPrimary">#0078f0</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffe711</color>
+
+    <string-array name="grade_serial_bg">
+        <item>#ffe711</item>
+        <item>#ffe711</item>
+        <item>#ffe711</item>
+        <item>#ffe711</item>
+        <item>#ffe711</item>
+        <item>#ffe711</item>
+    </string-array>
+
 </resources>
