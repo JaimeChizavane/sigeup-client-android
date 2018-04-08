@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 
 import mz.ac.sigeup.sigeup_navigationview.R;
 
@@ -32,6 +33,23 @@ public class SituacaoAcademicaFragment extends Fragment {
 
     public SituacaoAcademicaFragment() {
         // Required empty public constructor
+    }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.AvaliacaoRadioButton1:
+                if (checked)
+                    // Here will be Avaliacao route
+                    break;
+            case R.id.ExameRadioButton1:
+                if (checked)
+                    // Here will be Exame route
+                    break;
+        }
     }
 
     /**

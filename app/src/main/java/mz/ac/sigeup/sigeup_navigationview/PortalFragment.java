@@ -195,11 +195,11 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
         switch(view.getId()) {
             case R.id.AvaliacaoRadioButton1:
                 if (checked)
-                    // Pirates are the best
+                    // Here will be Avaliacao route
                     break;
             case R.id.ExameRadioButton1:
                 if (checked)
-                    // Ninjas rule
+                    // Here will be Exame route
                     break;
         }
     }
