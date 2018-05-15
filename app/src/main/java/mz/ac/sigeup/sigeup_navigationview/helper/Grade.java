@@ -6,43 +6,27 @@ package mz.ac.sigeup.sigeup_navigationview.helper;
 
 public class Grade {
 
-    String studentID;
-    String teste1;
-    String teste2;
+    String Subject;
+    String Test;
 
-    public String getTeste1() {
-        return teste1;
+    public Grade(String subject, String test) {
+        Subject = subject;
+        Test = test;
     }
 
-    public void setTeste1(String teste1) {
-        this.teste1 = teste1;
+    public String getSubject() {
+        return Subject;
     }
 
-    public String getTeste2() {
-        return teste2;
+    public void setSubject(String subject) {
+        Subject = subject;
     }
 
-    public void setTeste2(String teste2) {
-        this.teste2 = teste2;
+    public String getTest() {
+        return Test;
     }
 
-
-
-    public String getStudentID() {
-        return studentID;
+    public void setTest(String test) {
+        Test = test;
     }
-
-    public void setStudentID(String studentID) {
-        this.studentID = studentID;
-    }
-
-    public Grade(String teste1, String teste2) {
-        this.teste1 = teste1;
-        this.teste2 = teste2;
-    }
-
-    public Grade(){
-
-    }
-
 }

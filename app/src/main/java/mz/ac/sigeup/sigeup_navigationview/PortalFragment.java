@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import mz.ac.sigeup.sigeup_navigationview.app.GradeListAdapter;
 import mz.ac.sigeup.sigeup_navigationview.app.MyApplication;
 import mz.ac.sigeup.sigeup_navigationview.app.Notas;
 import mz.ac.sigeup.sigeup_navigationview.helper.Grade;
@@ -70,6 +72,7 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
     private ListView listView;
     private SwipeListAdapter adapter;
     private List<Grade> gradeList;
+    private String [] Subjects;
 
     private int offSet = 0;
 
@@ -126,9 +129,9 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
                              Bundle savedInstanceState) {
 
         //listView = (ListView) getView().findViewById(R.id.portalListView);
-        listView = (ListView) getView().findViewById(R.id.portalListView);
+        /*listView = (ListView) getView().findViewById(R.id.portalListView);*/
 
-        //swipeRefreshLayout =  (SwipeRefreshLayout) getView().findViewById(R.id.swipe_refresh_layout);
+       /* //swipeRefreshLayout =  (SwipeRefreshLayout) getView().findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout =   getView().findViewById(R.id.swipe_refresh_layout);
 
         gradeList = new ArrayList<>();
@@ -140,19 +143,9 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
         //swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.setOnRefreshListener(this);
 
-
-
-
-
-
-
-
-
-
-        /**
          * Showing Swipe Refresh animation on activity create
          * As animation won't start on onCreate, post runnable is used
-         */
+         *//*
         swipeRefreshLayout.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -162,10 +155,51 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
                                     }
                                 }
-        );
+        );*/
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_portal, container, false);
+         View view = inflater.inflate(R.layout.fragment_portal, container, false);
+
+        String [] portalMenuItems = {"Tecnicas de expressao em LP", "Antropologia Cultural", "Fisica 1"};
+        String [] portalMenuItems2 = {"12", "13", "14"};
+
+        Grade grade1 = new Grade("Tecnicas de expressao em LP", "12");
+        Grade grade2 = new Grade("Antropologia Cultural", "13");
+        Grade grade3 = new Grade("Fisica 1", "14");
+        Grade grade4 = new Grade("Analise Matematica 1", "14");
+        Grade grade5 = new Grade("ALGA 1", "18");
+        Grade grade6 = new Grade("Ingles Tecnico 1", "14");
+        Grade grade7 = new Grade("Tema Transversal", "10");
+
+        ArrayList<Grade> gradeList = new ArrayList<>();
+
+        gradeList.add(grade1);
+        gradeList.add(grade2);
+        gradeList.add(grade3);
+        gradeList.add(grade4);
+        gradeList.add(grade5);
+        gradeList.add(grade6);
+        gradeList.add(grade7);
+
+        //GradeListAdapter gradeListAdapter = new GradeListAdapter(this, getActivity().findViewById(R.layout.grade_view_layout), gradeList);
+        //GradeListAdapter gradeListAdapter = new GradeListAdapter(this, R.layout.grade_view_layout, gradeList);
+
+
+        GradeListAdapter gradeListAdapter = new GradeListAdapter(getActivity(), R.layout.grade_view_layout, gradeList);
+
+
+        ListView listView = (ListView) view.findViewById(R.id.portalListView);
+
+       /* ArrayAdapter <String> listViewAdapter = new ArrayAdapter<String>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                portalMenuItems
+        );*/
+
+
+        listView.setAdapter(gradeListAdapter);
+
+
+        return view;
 
     }
 
@@ -187,7 +221,7 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
         }
     }
 
-    public void onRadioButtonClicked(View view) {
+/*    public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
 
@@ -202,7 +236,7 @@ public class PortalFragment extends Fragment implements SwipeRefreshLayout.OnRef
                     // Here will be Exame route
                     break;
         }
-    }
+    }*/
 
     @Override
     public void onDetach() {

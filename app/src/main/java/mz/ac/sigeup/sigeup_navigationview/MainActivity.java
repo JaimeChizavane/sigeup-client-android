@@ -92,15 +92,15 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_portal) {
             setTitle("Portal do Estudante");
-            SituacaoAcademicaFragment situacaoAcademicaFragment = new SituacaoAcademicaFragment();
+            /*SituacaoAcademicaFragment situacaoAcademicaFragment = new SituacaoAcademicaFragment();
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.frame, situacaoAcademicaFragment);
             fm.commit();
-
-            /*PortalFragment portalEstudante = new PortalFragment();
+*/
+            PortalFragment portalEstudante = new PortalFragment();
             FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
             fm.replace(R.id.frame, portalEstudante);
-            fm.commit();*/
+            fm.commit();
 
 
         } else if (id == R.id.nav_financial) {

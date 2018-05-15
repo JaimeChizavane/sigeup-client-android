@@ -37,4 +37,20 @@
         <item>Inscrições</item>
     </string-array>
 
+
+        <string-array name="ano_array">
+            <item>Selecione o ano</item>
+            <item>2014</item>
+            <item>2015</item>
+            <item>2016</item>
+            <item>2017</item>
+        </string-array>
+
+    <string-array name="semestre_array">
+        <item>Selecione o Semestre</item>
+        <item>1 Semestre</item>
+        <item>2 Semestre</item>
+    </string-array>
+
+
 </resources>

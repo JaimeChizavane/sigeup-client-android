@@ -78,8 +78,8 @@ public class SwipeListAdapter extends BaseAdapter {
         TextView serial = (TextView) convertView.findViewById(R.id.nome_cadeira);
         TextView title = (TextView) convertView.findViewById(R.id.nota);
 
-        serial.setText(String.valueOf(gradeList.get(position).teste1));
-        title.setText(String.valueOf(gradeList.get(position).teste2));
+        serial.setText(String.valueOf(gradeList.get(position).Subject));
+        title.setText(String.valueOf(gradeList.get(position).Test));
 
         String color = bgColors[position % bgColors.length];
         serial.setBackgroundColor(Color.parseColor(color));

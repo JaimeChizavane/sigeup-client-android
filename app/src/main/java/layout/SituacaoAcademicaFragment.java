@@ -7,7 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 
 import mz.ac.sigeup.sigeup_navigationview.R;
 
@@ -25,9 +29,24 @@ public class SituacaoAcademicaFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    public String RadioItemSelected = null;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+   /* Spinner spinner = (Spinner) findViewById(R.id.year_spinner);
+    // Create an ArrayAdapter using the string array and a default spinner layout
+    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+            R.array.ano_array, android.R.layout.simple_spinner_item);
+    // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.);
+    // Apply the adapter to the spinner
+          spinner.setAdapter(adapter);*/
+
+   Spinner spinner;
+    ArrayAdapter<CharSequence> adapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -44,13 +63,18 @@ public class SituacaoAcademicaFragment extends Fragment {
             case R.id.AvaliacaoRadioButton1:
                 if (checked)
                     // Here will be Avaliacao route
+
+                    RadioItemSelected = "teste";
                     break;
             case R.id.ExameRadioButton1:
                 if (checked)
                     // Here will be Exame route
+                    RadioItemSelected = "exame";
                     break;
         }
     }
+
+
 
     /**
      * Use this factory method to create a new instance of
@@ -77,6 +101,23 @@ public class SituacaoAcademicaFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        spinner = (Spinner)getView().findViewById(R.id.year_spinner);
+        adapter = ArrayAdapter.createFromResource(getActivity(), R.array.ano_array, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+  /*      spinner.getOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+
+                                          {
+                                              @Override
+                                              public void
+
+
+                                          }
+
+        );*/
+
     }
 
     @Override
@@ -84,6 +125,7 @@ public class SituacaoAcademicaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_situacao_academica, container, false);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
